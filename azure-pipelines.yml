@@ -24,6 +24,8 @@ steps:
 - powershell: |
    git --version
    git checkout master
+   git config user.email "me@samiya.ca"
+   git config user.name "Samiya's bot 2019"
    #  New-Item -Path "$(System.DefaultWorkingDirectory)" -Name "testfile1.txt" -ItemType "file" -Value "This is a text string."
    #  Write-Host "new file created, now adding file to git"
    #  git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" add -A
