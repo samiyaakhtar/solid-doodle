@@ -17,29 +17,19 @@ resources:
     endpoint: solid-doodle-push-auth
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-  
 - checkout: self
   persistCredentials: true
   clean: true
 
 - powershell: |
    git --version
-   #  git clone https://github.com/samiyaakhtar/solid-doodle.git
-   #  cd solid-doodle
-   git checkout master
-   #  New-Item -Path "$(System.DefaultWorkingDirectory)" -Name "testfile.txt" -ItemType "file" -Value "This is a text string."
-   
-
+   New-Item -Path "$(System.DefaultWorkingDirectory)" -Name "testfile1.txt" -ItemType "file" -Value "This is a text string."
    Write-Host "new file created, now adding file to git"
-   #  git add -A
+   git add -A
    Write-Host "setup author info"
-   git config user.email test@test.com
-   git config user.name "BOT"
+   git config user.email samiya@samiya.ca
+   git config user.name "Samiya's bot"
    Write-Host "git commit with message"
-   git commit --allow-empty -a -m "Test Commit from Azure DevOps"
-   git remote set-url origin git@github.com:samiyaakhtar/solid-doodle.git
+   git commit -a -m "Test Commit from Azure DevOps"
    Write-Host "git push"
    git push
-
