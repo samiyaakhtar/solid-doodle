@@ -9,11 +9,37 @@ trigger:
 pool:
   vmImage: 'Ubuntu-16.04'
 
+resources:         
+  repositories:
+  - repository: destinationRepo
+    type: github
+    name: samiyaakhtar/flux-get-started
+    endpoint: solid-doodle-push-auth
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+  
+- checkout: destinationRepo
+  persistCredentials: true
+  clean: true
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+# - powershell: |
+#    git --version
+#    #  git clone https://github.com/samiyaakhtar/solid-doodle.git
+#    #  cd solid-doodle
+#    git checkout master
+#    #  New-Item -Path "$(System.DefaultWorkingDirectory)" -Name "testfile.txt" -ItemType "file" -Value "This is a text string."
+   
+
+#    Write-Host "new file created, now adding file to git"
+#    #  git add -A
+#    Write-Host "setup author info"
+#    git config user.email you@you.com
+#    git config user.name "your name"
+#    Write-Host "git commit with message"
+#    git commit --allow-empty -a -m "Test Commit from Azure DevOps"
+#    git remote set-url origin git@github.com:samiyaakhtar/solid-doodle.git
+#    Write-Host "git push"
+#    git push origin master
+
