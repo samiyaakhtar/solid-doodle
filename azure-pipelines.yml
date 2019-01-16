@@ -17,19 +17,16 @@ resources:
     endpoint: solid-doodle-push-auth
 
 steps:
-- checkout: self
+- checkout: destinationRepo
   persistCredentials: true
   clean: true
 
 - powershell: |
    git --version
    git checkout master
-   git config user.email "me@samiya.ca"
-   git config user.name "Samiya's bot 2019"
-   #  New-Item -Path "$(System.DefaultWorkingDirectory)" -Name "testfile1.txt" -ItemType "file" -Value "This is a text string."
-   #  Write-Host "new file created, now adding file to git"
-   #  git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" add -A
+   git config user.email "me@test.ca"
+   git config user.name "AzureDevOps Bot"
    Write-Host "git commit with message"
-   git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" commit  --allow-empty -a -m "Test Commit from Azure DevOps"
+   git commit  --allow-empty -a -m "Test Commit from Azure DevOps"
    Write-Host "git push"
-   git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push
+   git push
