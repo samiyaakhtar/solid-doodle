@@ -23,6 +23,7 @@ steps:
 
 - powershell: |
    git --version
+   git checkout master
    New-Item -Path "$(System.DefaultWorkingDirectory)" -Name "testfile1.txt" -ItemType "file" -Value "This is a text string."
    Write-Host "new file created, now adding file to git"
    git add -A
