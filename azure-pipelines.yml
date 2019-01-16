@@ -28,6 +28,6 @@ steps:
    #  Write-Host "new file created, now adding file to git"
    #  git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" add -A
    Write-Host "git commit with message"
-   git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" --allow-empty commit -a -m "Test Commit from Azure DevOps"
+   git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" commit  --allow-empty -a -m "Test Commit from Azure DevOps"
    Write-Host "git push"
    git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push
