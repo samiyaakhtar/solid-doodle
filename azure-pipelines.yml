@@ -17,7 +17,7 @@ resources:
     endpoint: solid-doodle-push-auth
 
 steps:
-- checkout: destinationRepo
+- checkout: self
   persistCredentials: true
   clean: true
 
