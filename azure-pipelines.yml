@@ -9,8 +9,24 @@ trigger:
 pool:
   vmImage: 'Ubuntu-16.04'
 
+resources:         
+  repositories:
+  - repository: destinationRepo
+    type: github
+    name: samiyaakhtar/solid-doodle
+    endpoint: solid-doodle-push-auth
+
 steps:
-- checkout: self
+- checkout: destinationRepo
   persistCredentials: true
   clean: true
 
+- powershell: |
+   git --version
+   git checkout master
+   git config user.email "me@test.ca"
+   git config user.name "AzureDevOps Bot"
+   Write-Host "git commit with message"
+   git commit  --allow-empty -a -m "Test Commit from Azure DevOps"
+   Write-Host "git push"
+   git push
